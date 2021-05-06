@@ -162,6 +162,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/06/Spectra/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Huang Chia Yu">
+      <meta itemprop="description" content="偶爾寫點東西">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JCorpse">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/06/Spectra/" class="post-title-link" itemprop="url">Spectra</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-05-06 20:16:17" itemprop="dateCreated datePublished" datetime="2021-05-06T20:16:17+08:00">2021-05-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hack-The-Box/" itemprop="url" rel="index"><span itemprop="name">Hack The Box</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> <img src="/images/Spectra/title.PNG" alt="Spectra" title="Spectra"></p>
+<ul>
+<li>Nmap<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -Pn -sV  10.10.10.229</span><br></pre></td></tr></table></figure>
+<img src="/images/Spectra/Nmap.PNG" alt="Nmap" title="Nmap"></li>
+</ul>
+<hr>
+<ul>
+<li><p>Web<br><img src="/images/Spectra/Web.PNG" alt="Web" title="Web"></p>
+</li>
+<li><p>Web-Software Issue Tracker<br><img src="/images/Spectra/Web-SIT.PNG" alt="Web-SIT" title="Web-SIT"><br><img src="/images/Spectra/Web-SIT-login.PNG" alt="Web-SIT-login" title="Web-SIT-login"><br>Software Issue Tracker是WordPress建的<br>有個登入頁面，其他部分看起來沒什麼問題<br>手上也沒有什麼資訊，先放置</p>
+</li>
+<li><p>Web-Test<br><img src="/images/Spectra/Web-Test.PNG" alt="Web-Test" title="Web-Test"><br><img src="/images/Spectra/Web-Testing.PNG" alt="Web-Testing" title="Web-Testing"><br>Test一來就報錯<br>往上翻發現testing讀得到<br><img src="/images/Spectra/config-php.PNG" alt="Web-config-php" title="config-php"><br>大致上翻過一遍之後只有wp-config.php.save看起來點內容<br>拿去Software Issue Tracker嘗試登入 失敗<br>想到Software Issue Tracker唯一一篇Hello world!的作者是administrator拿來當UserName嘗試登入成功<br><img src="/images/Spectra/login.PNG" alt="login" title="login"><br>後台看起來沒什麼問題<br>不過用的是WordPress 5.4.2<br>依照慣例應該有洞可以鑽<br>翻了半天發現Metasploit的wp_admin_shell_upload可以用<br><img src="/images/Spectra/msf-wp-shell.PNG" alt="msf-wp-shell" title="msf-wp-shell"><br><img src="/images/Spectra/id.PNG" alt="id" title="id"><br>進去之後是Nginx<br><img src="/images/Spectra/user.PNG" alt="user" title="user"><br><img src="/images/Spectra/katie-home.PNG" alt="katie-home" title="katie-home"><br>Flag在katie底下，所以下一個目標就是拿到katie的權限<br>再次翻個半天在/opt底下翻到autologin.conf.orig<br><img src="/images/Spectra/autologin-conf.PNG" alt="autologin-conf" title="autologin-conf"><br>裡面寫到/etc/autologin底下還有一個passwd 貓它<br>拿到密碼嘗試ssh登入成功<br><img src="/images/Spectra/user-get.PNG" alt="user-get" title="user-get"><br><img src="/images/Spectra/user-flag.PNG" alt="user-flag" title="user-flag"><br>UserGet!</p>
+</li>
+</ul>
+<hr>
+<h1 id="Root"><a href="#Root" class="headerlink" title="Root"></a>Root</h1><p><img src="/images/Spectra/sudo-l.PNG" alt="sudo-l" title="sudo-l"><br>有initctl可以直接執行<br>餵狗之後發現配置文件在/etc/init底下裡面有一堆test可以用目前的權限修改<br><img src="/images/Spectra/init.PNG" alt="init" title="init"></p>
+<p><img src="/images/Spectra/test-conf.PNG" alt="test-conf" title="test-conf"><br><img src="/images/Spectra/test-start.PNG" alt="test-start" title="test-start"><br>修改test.con給bash加上SUID再執行<br><img src="/images/Spectra/root-get.PNG" alt="root-get" title="root-get"><br><img src="/images/Spectra/root-flag.PNG" alt="root-flag" title="root-flag"><br>RootGet!</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/02/Unique-Morse-Code-Words/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -176,7 +259,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/05/02/Unique-Morse-Code-Words/" class="post-title-link" itemprop="url">Unique-Morse-Code-Words</a>
+            <a href="/2021/05/02/Unique-Morse-Code-Words/" class="post-title-link" itemprop="url">Unique Morse Code Words</a>
         </h2>
 
         <div class="post-meta">
@@ -185,10 +268,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-05-02 06:45:09 / 修改時間：06:53:51" itemprop="dateCreated datePublished" datetime="2021-05-02T06:45:09+08:00">2021-05-02</time>
+              <time title="創建時間：2021-05-02 06:45:09" itemprop="dateCreated datePublished" datetime="2021-05-02T06:45:09+08:00">2021-05-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-06 20:19:10" itemprop="dateModified" datetime="2021-05-06T20:19:10+08:00">2021-05-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -519,20 +608,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
