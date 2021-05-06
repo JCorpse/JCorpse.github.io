@@ -185,8 +185,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2021-05-06 20:16:17" itemprop="dateCreated datePublished" datetime="2021-05-06T20:16:17+08:00">2021-05-06</time>
+              <time title="創建時間：2021-05-06 20:16:17 / 修改時間：20:42:36" itemprop="dateCreated datePublished" datetime="2021-05-06T20:16:17+08:00">2021-05-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,21 +213,14 @@
           <p> <img src="/images/Spectra/title.PNG" alt="Spectra" title="Spectra"></p>
 <ul>
 <li>Nmap<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -Pn -sV  10.10.10.229</span><br></pre></td></tr></table></figure>
-<img src="/images/Spectra/Nmap.PNG" alt="Nmap" title="Nmap"></li>
-</ul>
-<hr>
-<ul>
-<li><p>Web<br><img src="/images/Spectra/Web.PNG" alt="Web" title="Web"></p>
-</li>
-<li><p>Web-Software Issue Tracker<br><img src="/images/Spectra/Web-SIT.PNG" alt="Web-SIT" title="Web-SIT"><br><img src="/images/Spectra/Web-SIT-login.PNG" alt="Web-SIT-login" title="Web-SIT-login"><br>Software Issue Tracker是WordPress建的<br>有個登入頁面，其他部分看起來沒什麼問題<br>手上也沒有什麼資訊，先放置</p>
-</li>
-<li><p>Web-Test<br><img src="/images/Spectra/Web-Test.PNG" alt="Web-Test" title="Web-Test"><br><img src="/images/Spectra/Web-Testing.PNG" alt="Web-Testing" title="Web-Testing"><br>Test一來就報錯<br>往上翻發現testing讀得到<br><img src="/images/Spectra/config-php.PNG" alt="Web-config-php" title="config-php"><br>大致上翻過一遍之後只有wp-config.php.save看起來點內容<br>拿去Software Issue Tracker嘗試登入 失敗<br>想到Software Issue Tracker唯一一篇Hello world!的作者是administrator拿來當UserName嘗試登入成功<br><img src="/images/Spectra/login.PNG" alt="login" title="login"><br>後台看起來沒什麼問題<br>不過用的是WordPress 5.4.2<br>依照慣例應該有洞可以鑽<br>翻了半天發現Metasploit的wp_admin_shell_upload可以用<br><img src="/images/Spectra/msf-wp-shell.PNG" alt="msf-wp-shell" title="msf-wp-shell"><br><img src="/images/Spectra/id.PNG" alt="id" title="id"><br>進去之後是Nginx<br><img src="/images/Spectra/user.PNG" alt="user" title="user"><br><img src="/images/Spectra/katie-home.PNG" alt="katie-home" title="katie-home"><br>Flag在katie底下，所以下一個目標就是拿到katie的權限<br>再次翻個半天在/opt底下翻到autologin.conf.orig<br><img src="/images/Spectra/autologin-conf.PNG" alt="autologin-conf" title="autologin-conf"><br>裡面寫到/etc/autologin底下還有一個passwd 貓它<br>拿到密碼嘗試ssh登入成功<br><img src="/images/Spectra/user-get.PNG" alt="user-get" title="user-get"><br><img src="/images/Spectra/user-flag.PNG" alt="user-flag" title="user-flag"><br>UserGet!</p>
-</li>
-</ul>
-<hr>
-<h1 id="Root"><a href="#Root" class="headerlink" title="Root"></a>Root</h1><p><img src="/images/Spectra/sudo-l.PNG" alt="sudo-l" title="sudo-l"><br>有initctl可以直接執行<br>餵狗之後發現配置文件在/etc/init底下裡面有一堆test可以用目前的權限修改<br><img src="/images/Spectra/init.PNG" alt="init" title="init"></p>
-<p><img src="/images/Spectra/test-conf.PNG" alt="test-conf" title="test-conf"><br><img src="/images/Spectra/test-start.PNG" alt="test-start" title="test-start"><br>修改test.con給bash加上SUID再執行<br><img src="/images/Spectra/root-get.PNG" alt="root-get" title="root-get"><br><img src="/images/Spectra/root-flag.PNG" alt="root-flag" title="root-flag"><br>RootGet!</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/06/Spectra/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -276,7 +270,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-05-06 20:19:10" itemprop="dateModified" datetime="2021-05-06T20:19:10+08:00">2021-05-06</time>
+                <time title="修改時間：2021-05-06 20:43:27" itemprop="dateModified" datetime="2021-05-06T20:43:27+08:00">2021-05-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -309,9 +303,14 @@
 
 <p>There are 2 different transformations, “–…-.” and “–…–.”.<br>Note:<br>　　　1.The length of words will be at most 100.<br>　　　2.Each words[i] will have length in range [1, 12].<br>　　　3.words[i] will only consist of lowercase letters.</p>
 </blockquote>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">uniqueMorseRepresentations</span><span class="params">(String[] words)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">        Set&lt;String&gt; Morsecodes =<span class="keyword">new</span> HashSet&lt;String&gt;();</span><br><span class="line">        <span class="keyword">for</span>(String word: words)&#123;</span><br><span class="line">        	Morsecodes.add(ConvertMorsecode(word));</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="keyword">return</span> Morsecodes.size();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">ConvertMorsecode</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">    	<span class="keyword">char</span>[] wordArray = word.toCharArray();</span><br><span class="line">    	String[] Morsecode = &#123;<span class="string">&quot;.-&quot;</span>,<span class="string">&quot;-...&quot;</span>,<span class="string">&quot;-.-.&quot;</span>,<span class="string">&quot;-..&quot;</span>,<span class="string">&quot;.&quot;</span>,<span class="string">&quot;..-.&quot;</span>,<span class="string">&quot;--.&quot;</span>,<span class="string">&quot;....&quot;</span>,<span class="string">&quot;..&quot;</span>,<span class="string">&quot;.---&quot;</span>,<span class="string">&quot;-.-&quot;</span>,<span class="string">&quot;.-..&quot;</span>,<span class="string">&quot;--&quot;</span>,<span class="string">&quot;-.&quot;</span>,<span class="string">&quot;---&quot;</span>,<span class="string">&quot;.--.&quot;</span>,<span class="string">&quot;--.-&quot;</span>,<span class="string">&quot;.-.&quot;</span>,<span class="string">&quot;...&quot;</span>,<span class="string">&quot;-&quot;</span>,<span class="string">&quot;..-&quot;</span>,<span class="string">&quot;...-&quot;</span>,<span class="string">&quot;.--&quot;</span>,<span class="string">&quot;-..-&quot;</span>,<span class="string">&quot;-.--&quot;</span>,<span class="string">&quot;--..&quot;</span>&#125;; </span><br><span class="line">    	String Convertcode = <span class="keyword">new</span> String();</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">char</span> w_c : wordArray)&#123;</span><br><span class="line">    		Convertcode+=Morsecode[w_c-<span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> Convertcode;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/02/Unique-Morse-Code-Words/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -353,10 +352,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-05-02 06:36:14 / 修改時間：06:42:08" itemprop="dateCreated datePublished" datetime="2021-05-02T06:36:14+08:00">2021-05-02</time>
+              <time title="創建時間：2021-05-02 06:36:14" itemprop="dateCreated datePublished" datetime="2021-05-02T06:36:14+08:00">2021-05-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-06 20:43:10" itemprop="dateModified" datetime="2021-05-06T20:43:10+08:00">2021-05-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -382,8 +387,14 @@
 <p>Letters are case sensitive, so “a” is considered a different type of stone from “A”.<br>Example 1:<br>　　　Input: jewels = “aA”, stones = “aAAbbbb”<br>　　　Output: 3</p>
 <p>Example 2:<br>　　　Input: jewels = “z”, stones = “ZZ”<br>　　　Output: 0</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numJewelsInStones</span><span class="params">(String J, String S)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">char</span>[] J_Array = J.toCharArray();</span><br><span class="line">    	<span class="keyword">char</span>[] S_Array = S.toCharArray();</span><br><span class="line">    	<span class="keyword">int</span> solution = <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">char</span> j_c : J_Array)&#123;</span><br><span class="line">    		<span class="keyword">for</span>(<span class="keyword">char</span> s_c:S_Array)&#123;</span><br><span class="line">    			<span class="keyword">if</span>(j_c==s_c)&#123;</span><br><span class="line">    				solution++;</span><br><span class="line">    			&#125;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> solution;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/02/Jewels-and-Stones/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -425,10 +436,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-05-01 05:17:08 / 修改時間：06:44:28" itemprop="dateCreated datePublished" datetime="2021-05-01T05:17:08+08:00">2021-05-01</time>
+              <time title="創建時間：2021-05-01 05:17:08" itemprop="dateCreated datePublished" datetime="2021-05-01T05:17:08+08:00">2021-05-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-06 20:41:20" itemprop="dateModified" datetime="2021-05-06T20:41:20+08:00">2021-05-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -452,9 +469,14 @@
       
           <blockquote><p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.<br>You may assume the two numbers do not contain any leading zero, except the number 0 itself.<br>　　　　1.Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>　　　　2.Output: 7 -&gt; 0 -&gt; 8</p>
 </blockquote>
-
-<p>給兩個不為空的連結串列，分別代表兩個非負的整數。<br>它們越前面的數字代表越低的位數，將兩個連結串列相加後回傳一個新的連結串列。<br>以上方的(2 -&gt; 4 -&gt; 3)為例：2代表個位數、4為十位數、3則是百位數。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode Result = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode tmp = Result;</span><br><span class="line">        <span class="comment">//tmp為位數的和</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//sum為和的暫存</span></span><br><span class="line">        <span class="keyword">while</span> (l1 != <span class="keyword">null</span> || l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (l1 != <span class="keyword">null</span>) &#123;</span><br><span class="line">                sum += l1.val;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (l2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">                sum += l2.val;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            tmp.next = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">            <span class="comment">//寫入位數進位後的餘數</span></span><br><span class="line">            sum/=<span class="number">10</span>;</span><br><span class="line">           	<span class="comment">//sum進位</span></span><br><span class="line">            tmp = tmp.next;</span><br><span class="line">            <span class="comment">//移動指標到下一個node</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum / <span class="number">10</span> == <span class="number">1</span>)</span><br><span class="line">            tmp.next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">            <span class="comment">//如果最後百位數大於十再新增一個千位數node並寫入1</span></span><br><span class="line">        <span class="keyword">return</span> Result.next;</span><br><span class="line">        <span class="comment">//回傳Result</span></span><br><span class="line">        <span class="comment">//由於ListNode宣告第一個節點不能為null所以使用0</span></span><br><span class="line">        <span class="comment">//因此Result最後的內容為[0,7,0,8]</span></span><br><span class="line">        <span class="comment">//用next來回傳第一個node外的所有node</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/01/Add-Two-Numbers/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -496,10 +518,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-05-01 04:54:30 / 修改時間：05:15:29" itemprop="dateCreated datePublished" datetime="2021-05-01T04:54:30+08:00">2021-05-01</time>
+              <time title="創建時間：2021-05-01 04:54:30" itemprop="dateCreated datePublished" datetime="2021-05-01T04:54:30+08:00">2021-05-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-05-06 20:43:32" itemprop="dateModified" datetime="2021-05-06T20:43:32+08:00">2021-05-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -523,9 +551,14 @@
       
           <blockquote><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution, and you may not use the same element twice.<br>Example:<br>　　　　1.Given nums = [2, 7, 11, 15], target = 9,<br>　　　　2.Because nums[0] + nums[1] = 2 + 7 = 9,<br>　　　　3.return [0, 1].</p>
 </blockquote>
-
-<p>給一個型態為INT的陣列，其中有2個元素相加為target，回傳這兩個元素的位址。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] Result=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> z=i+<span class="number">1</span>;z&lt;nums.length;z++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[z]==target)&#123;</span><br><span class="line">                   Result[<span class="number">0</span>]=i;</span><br><span class="line">                   Result[<span class="number">1</span>]=z;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/01/Two-Sum/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
